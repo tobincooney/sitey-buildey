@@ -1,0 +1,7 @@
+website 3.0
+===========
+
+i made a thing to make a website
+you write in markdown files, with names starting with 000_<name>.md, so then you increment in hex or something
+
+build it all by running ./config.sh, and it'll make the html pages for you
