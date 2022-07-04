@@ -6,6 +6,7 @@ th#left { width: 180px; }
 th#right { width: auto; }
 td { display: auto; }
 td.menu {
+	text-indent: -12px;
 	padding-top: 20px;
 	position: fixed;
 	padding-right: 40px;

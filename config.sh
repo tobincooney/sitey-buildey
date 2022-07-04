@@ -95,7 +95,7 @@ function backlink {
 		if test $? -eq 0
 		then
 			l=`echo "$l + 1" | bc`
-			echo "<li><a href='$b'>$pretty</a></li>" | sed 's/.md/.html/' | sed 's/source\///'
+			echo "<li><a href='$b'>$pretty</a></li>" | sed 's/\.md/\.html/' | sed 's/source\///'
 		fi
 	done
 	for m in $( ls -tr source/updates/*.html )
@@ -114,7 +114,7 @@ echo "configuring..."
 echo "building index..."
 for f in $( ls source/*.md source/*.html )
 do
-	html_name="`echo $f | sed 's/source\///g' | sed 's/.md//g' | sed 's/.html//g'`.html"
+	html_name="`echo $f | sed 's/source\///g' | sed 's/\.md//g' | sed 's/\.html//g'`.html"
 	pretty=`head -1 $f | sed 's/# //' | sed 's/<center><h1>:: //' | sed 's/ ::<\/h1><\/center>//'`
 	index+="<li><a href='$html_name'>$pretty</a></li>"
 	# take this next line out if you make your own static table of contents above
@@ -146,7 +146,7 @@ do
 	main=$( htmlify $file )
 
 	echo -n "finding backlinks... "
-	id="`echo $file | sed 's/.md//g'`.html"
+	id="`echo $file | sed 's/\.md//g'`.html"
 	backlinks=$( backlink )
 	if [ -z "$backlinks" ]
 	then
