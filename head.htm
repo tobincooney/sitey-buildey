@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel='icon' type='image/png' href='../media/icon.ico' />
+		<link rel='stylesheet' type='text/css' href='main.css' />
+		<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' />
+		<link href='https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400&display=swap' rel='stylesheet' />
+		<link href='https://fonts.googleapis.com/css2?family=Bitter&display=swap' rel='stylesheet'>
+
+		<script type='text/javascript'>
+
+			function getCookie(cooken) {
+				let pre = cooken + '=';
+				let decodedCookie = decodeURIComponent(document.cookie);
+				let cookieSplit = decodedCookie.split(';');
+				for(let i = 0; i < cookieSplit.length; i++) {
+					let frag = cookieSplit[i];
+					while (frag.charAt(0) == ' ') {
+						frag = frag.substring(1);
+					}
+					if (frag.indexOf(name) == 0) {
+						return frag.substring(pre.length, frag.length);
+					}
+				}
+				return '';
+			}
+
+			function setMenu() {
+				let menuhidden = getCookie('menuhidden');
+				if (menuhidden == 'true') {
+					hideMenu();
+				}
+				else if (menuhidden == 'false') {
+					showMenu();
+				}
+			}
+
+			function hideMenu() {
+				document.getElementById('menusection').style = 'display:none;';
+				document.getElementById('bkptitle').style = '';
+				document.getElementById('bkpcontents').open = false;
+				document.getElementById('footerpad').style = 'display:none;';
+				document.cookie = 'menuhidden=true; path=/;';
+			}
+
+			function showMenu() {
+				document.getElementById('bkptitle').style = 'display:none;';
+				document.getElementById('menusection').style = '';
+				document.getElementById('contents').open = true;
+				document.getElementById('footerpad').style = '';
+				document.cookie = 'menuhidden=false; path=/;';
+			}
+
+		</script>
+
+		<title>Title</title>
+	</head>
+	<body id='top' onload='setMenu();'>
+		<div style='display:none;' id='bkptitle'>
+			<h2><a style='text-decoration:none; color:black;' href='home.html'>Title</a></h2>
+			<details id='bkpcontents' open='false'>
+				<summary onclick='showMenu();'><strong>contents</strong></summary>
+			</details>
+		</div>
+		<table>
+			<tr>
+				<th id='left'></th>
+				<th id='right'></th>
+			</tr>
+			<tr>
+				<td valign='top' class='menu block' id='menusection' style=''>
+					<h2><a style='text-decoration:none; color:black;' href='home.html'>Title</a></h2><br>
+					<details id='contents' open='true'>
+						<summary onclick='hideMenu();'><strong>contents</strong></summary>
+						<ul class='menulist'>
+							<li><a href='home.html'>Home</a></li>
+							<li><a href='search.html'>Search</a></li>
+							<li><a href='updates.html'>Updates</a></li>
+							<li><a href='index.html'>Index</a></li>
+						</ul>
+					</details><br>
+				</td>
+				<td valign='top' class='main block'>
+
+					<!-- begin main content dump -->
