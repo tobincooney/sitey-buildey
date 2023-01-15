@@ -62,14 +62,13 @@ function index {
 }
 
 function search {
-	echo "		<script type='text/javascript' src='search.js'></script>
+	echo "		<script type='text/javascript' src='../search.js'></script>
 		<script type='text/javascript' src='search-pages.js'></script>
 		<br>
 		<form onsubmit='return false;'><input id='searchbar' autofocus />
 		<button onclick='searchGo();'>Go</button></form>
 		<h2>RESULTS</h2>
 		<div id='results'><ol id='log'></ol></div>"
-	cd site; ln -sf ../src/search.js search.js; cd ..
 	echo "var pages = [" > site/search-pages.js
 	for i in $( ls -t src/*.htm ); do
 		name=$( echo "$i" | sed 's/src\///' | sed 's/\.htm//' )
