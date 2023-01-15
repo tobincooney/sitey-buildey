@@ -129,6 +129,9 @@ function media {
 	echo "</ul>"
 }
 
+if ! [ -d site ]; then
+	mkdir site
+fi
 echo -n "[$( date )]" >> site/builds.txt
 if [ -z "$1" ]; then
 	echo "FULL BUILD"
